@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Team Recruitment | Project Sarola – Akshardham Associates</title>
+<meta name="description" content="Project Sarola — Sales Executive & Sales Manager vacancy registration form. Akshardham Associates.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#E8641B; --orange-2:#F28C28; --yellow:#F5B81C; --brown:#8A5A2B;
+  --ink:#1F2430; --muted:#6B7280; --line:#E8E1D8; --bg:#FBF7F2; --card:#FFFFFF;
+  --soft:#FFF4E8; --ok:#16A34A; --err:#DC2626; --radius:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins','Noto Sans Devanagari',sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 48px}
+
+/* ---------- HERO ---------- */
+.hero{background:linear-gradient(135deg,#C9470F 0%,var(--orange) 45%,var(--orange-2) 75%,var(--yellow) 100%);color:#fff;padding:36px 16px 90px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -10% -60px -10%;height:120px;background:var(--bg);border-radius:50% 50% 0 0}
+.logo-box{width:112px;height:112px;margin:0 auto 14px;background:#fff;border-radius:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.15);padding:10px}
+.logo-box img{max-width:100%;max-height:100%}
+.brand{font-size:12px;letter-spacing:3px;text-transform:uppercase;opacity:.9}
+.hero h1{font-size:28px;font-weight:700;margin:6px 0 4px}
+.hero .sub{font-size:15px;opacity:.95}
+.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px;position:relative;z-index:1}
+.badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:6px 14px;border-radius:999px;font-size:13px;backdrop-filter:blur(4px)}
+
+/* ---------- PROGRESS ---------- */
+.progress{position:sticky;top:0;z-index:20;background:rgba(251,247,242,.92);backdrop-filter:blur(8px);padding:10px 0 8px;margin-top:-24px;border-radius:12px}
+.progress-bar{height:6px;background:var(--line);border-radius:6px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--yellow));transition:width .3s}
+.progress-txt{font-size:12px;color:var(--muted);margin-top:4px;text-align:right}
+
+/* ---------- CARDS ---------- */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:0 4px 20px rgba(138,90,43,.08);border:1px solid var(--line);padding:22px 20px;margin-top:18px}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px dashed var(--line)}
+.sec-num{width:36px;height:36px;flex:0 0 36px;border-radius:10px;background:var(--soft);color:var(--orange);display:flex;align-items:center;justify-content:center;font-weight:700}
+.sec-head h2{font-size:17px;font-weight:600}
+.sec-head p{font-size:12.5px;color:var(--muted)}
+
+.field{margin-bottom:16px}
+.field:last-child{margin-bottom:0}
+label.lbl{display:block;font-size:14px;font-weight:500;margin-bottom:6px}
+label.lbl .en{color:var(--muted);font-weight:400;font-size:12.5px}
+.req{color:var(--err)}
+.hint{font-size:12px;color:var(--muted);margin-top:4px}
+input[type=text],input[type=tel],input[type=email],input[type=date],input[type=number],select,textarea{
+  width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font:inherit;font-size:15px;background:#fff;color:var(--ink);transition:border .2s,box-shadow .2s}
+textarea{min-height:90px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px rgba(232,100,27,.12)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid2 .field{margin-bottom:0}
+.row-gap{margin-bottom:16px}
+
+/* ---------- POST CARDS ---------- */
+.posts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.post{position:relative;cursor:pointer}
+.post input{position:absolute;opacity:0}
+.post .pc{border:2px solid var(--line);border-radius:14px;padding:16px;height:100%;transition:all .2s;background:#fff}
+.post .pc .ic{font-size:26px}
+.post .pc h3{font-size:16px;font-weight:600;margin:6px 0 2px}
+.post .pc p{font-size:12.5px;color:var(--muted)}
+.post .pc ul{margin-top:8px;padding-left:16px;font-size:12px;color:var(--muted)}
+.post input:checked + .pc{border-color:var(--orange);background:var(--soft);box-shadow:0 6px 18px rgba(232,100,27,.18)}
+.post input:checked + .pc::after{content:"✓";position:absolute;top:10px;right:12px;width:24px;height:24px;border-radius:50%;background:var(--orange);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center}
+
+/* ---------- CHIPS ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;cursor:pointer}
+.chip input{position:absolute;opacity:0}
+.chip span{display:inline-block;padding:8px 14px;border:1.5px solid var(--line);border-radius:999px;font-size:13.5px;background:#fff;transition:all .15s;user-select:none}
+.chip input:checked + span{background:var(--orange);border-color:var(--orange);color:#fff}
+.chip input:focus-visible + span{box-shadow:0 0 0 4px rgba(232,100,27,.2)}
+
+/* ---------- FILE ---------- */
+.file{border:2px dashed var(--line);border-radius:14px;padding:18px;text-align:center;cursor:pointer;transition:all .2s;background:#FFFCF8}
+.file:hover,.file.has{border-color:var(--orange);background:var(--soft)}
+.file input{display:none}
+.file .fi{font-size:26px}
+.file .ft{font-size:14px;font-weight:500}
+.file .fs{font-size:12px;color:var(--muted)}
+
+.manager-only{display:none}
+.manager-only.show{display:block;animation:fade .3s}
+@keyframes fade{from{opacity:0;transform:translateY(-6px)}to{opacity:1}}
+.tag-mgr{display:inline-block;font-size:11px;background:#1F2430;color:#fff;padding:2px 8px;border-radius:6px;margin-left:6px;vertical-align:middle}
+
+.decl{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;background:var(--soft);padding:14px;border-radius:12px}
+.decl input{width:20px;height:20px;accent-color:var(--orange);flex:0 0 20px;margin-top:2px}
+
+.err-msg{color:var(--err);font-size:12px;margin-top:4px;display:none}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:var(--err)}
+.field.invalid .err-msg{display:block}
+
+.submit{width:100%;margin-top:22px;padding:16px;border:none;border-radius:14px;font:inherit;font-size:17px;font-weight:600;color:#fff;cursor:pointer;background:linear-gradient(135deg,var(--orange),var(--orange-2));box-shadow:0 8px 24px rgba(232,100,27,.35);transition:transform .15s,opacity .2s}
+.submit:active{transform:scale(.98)}
+.submit:disabled{opacity:.7;cursor:wait}
+.secure{text-align:center;font-size:12.5px;color:var(--muted);margin-top:10px}
+
+/* ---------- SUCCESS ---------- */
+.success{display:none;text-align:center;padding:40px 22px}
+.success .big{font-size:56px}
+.success h2{font-size:24px;margin:8px 0}
+.appid{display:inline-block;margin:14px 0;padding:12px 22px;border-radius:12px;background:var(--soft);border:1.5px dashed var(--orange);font-weight:700;font-size:20px;color:var(--orange);letter-spacing:1px}
+.success p{color:var(--muted);font-size:14px}
+.steps{text-align:left;margin:20px auto 0;max-width:420px}
+.steps div{display:flex;gap:10px;margin-bottom:10px;font-size:14px}
+.steps b{width:24px;height:24px;flex:0 0 24px;border-radius:50%;background:var(--orange);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+
+footer{text-align:center;font-size:12.5px;color:var(--muted);margin-top:30px}
+footer b{color:var(--brown)}
+
+@media (max-width:560px){
+  .hero h1{font-size:23px}
+  .grid2,.posts{grid-template-columns:1fr}
+  .card{padding:18px 16px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="logo-box"><img src="logo.png" alt="Akshardham Associates" onerror="this.parentElement.style.display='none'"></div>
+  <div class="brand">✦ Akshardham Associates ✦</div>
+  <h1>We're Hiring – Project Sarola</h1>
+  <div class="sub">सेल्स टीम भर्ती पंजीकरण फॉर्म · Tejas Vihar, Sarola – Khanpur</div>
+  <div class="badges">
+    <span class="badge">💼 Sales Executive</span>
+    <span class="badge">🎯 Sales Manager</span>
+    <span class="badge">📍 Sarola · Khanpur</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="progress"><div class="progress-bar"><div class="progress-fill" id="pfill"></div></div><div class="progress-txt" id="ptxt">0% पूरा</div></div>
+
+  <form id="jobForm" novalidate>
+
+    <!-- 1. POST -->
+    <section class="card">
+      <div class="sec-head"><div class="sec-num">1</div><div><h2>आप किस पद के लिए आवेदन कर रहे हैं?</h2><p>Select the position you are applying for</p></div></div>
+      <div class="field" data-req="post">
+        <div class="posts">
+          <label class="post"><input type="radio" name="post" value="Sales Executive">
+            <div class="pc"><div class="ic">💼</div><h3>Sales Executive</h3><p>सेल्स एग्जीक्यूटिव</p>
+              <ul><li>Client visits & site visits</li><li>Lead follow-up & booking</li><li>Field work in villages</li></ul></div></label>
+          <label class="post"><input type="radio" name="post" value="Sales Manager">
+            <div class="pc"><div class="ic">🎯</div><h3>Sales Manager</h3><p>सेल्स मैनेजर</p>
+              <ul><li>Team handling & targets</li><li>Agent network building</li><li>Deal closing & reporting</li></ul></div></label>
+        </div>
+        <div class="err-msg">कृपया एक पद चुनें</div>
+      </div>
+    </section>
+
+    <!-- 2. PERSONAL -->
+    <section class="card">
+      <div class="sec-head"><div class="sec-num">2</div><div><h2>व्यक्तिगत जानकारी</h2><p>Personal Details</p></div></div>
+
+      <div class="field" data-req="text"><label class="lbl">पूरा नाम <span class="en">Full Name</span> <span class="req">*</span></label>
+        <input type="text" name="fullName" placeholder="जैसे: रमेश कुमार मीणा" autocomplete="name"><div class="err-msg">नाम ज़रूरी है</div></div>
+
+      <div class="field"><label class="lbl">पिता का नाम <span class="en">Father's Name</span></label>
+        <input type="text" name="fatherName" placeholder="पिता का पूरा नाम"></div>
+
+      <div class="grid2 row-gap">
+        <div class="field" data-req="text"><label class="lbl">जन्म तिथि <span class="en">Date of Birth</span> <span class="req">*</span></label>
+          <input type="date" name="dob" id="dob"><div class="hint" id="ageHint"></div><div class="err-msg">जन्म तिथि ज़रूरी है</div></div>
+        <div class="field" data-req="text"><label class="lbl">लिंग <span class="en">Gender</span> <span class="req">*</span></label>
+          <select name="gender"><option value="">चुनें</option><option>पुरुष / Male</option><option>महिला / Female</option><option>अन्य / Other</option></select><div class="err-msg">कृपया चुनें</div></div>
+      </div>
+
+      <div class="grid2 row-gap">
+        <div class="field" data-req="mobile"><label class="lbl">मोबाइल नंबर <span class="en">WhatsApp</span> <span class="req">*</span></label>
+          <input type="tel" name="mobile" maxlength="10" inputmode="numeric" placeholder="10 अंकों का नंबर"><div class="err-msg">सही 10 अंकों का नंबर डालें</div></div>
+        <div class="field"><label class="lbl">दूसरा नंबर <span class="en">Alternate</span></label>
+          <input type="tel" name="altMobile" maxlength="10" inputmode="numeric" placeholder="वैकल्पिक"></div>
+      </div>
+
+      <div class="field"><label class="lbl">ईमेल <span class="en">Email (optional)</span></label>
+        <input type="email" name="email" placeholder="name@gmail.com"></div>
+
+      <div class="field" data-req="text"><label class="lbl">वर्तमान पता <span class="en">Village / City, Tehsil</span> <span class="req">*</span></label>
+        <input type="text" name="address" placeholder="गाँव / शहर, तहसील"><div class="err-msg">पता ज़रूरी है</div></div>
+
+      <div class="field" data-req="text"><label class="lbl">ज़िला <span class="en">District</span> <span class="req">*</span></label>
+        <select name="district"><option value="">चुनें</option><option>झालावाड़</option><option>कोटा</option><option>बारां</option><option>बूंदी</option><option>अन्य</option></select><div class="err-msg">कृपया चुनें</div></div>
+    </section>
+
+    <!-- 3. EDUCATION -->
+    <section class="card">
+      <div class="sec-head"><div class="sec-num">3</div><div><h2>शिक्षा</h2><p>Education</p></div></div>
+      <div class="field" data-req="radio" data-name="qualification"><label class="lbl">उच्चतम योग्यता <span class="en">Highest Qualification</span> <span class="req">*</span></label>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="qualification" value="10th"><span>10th</span></label>
+          <label class="chip"><input type="radio" name="qualification" value="12th"><span>12th</span></label>
+          <label class="chip"><input type="radio" name="qualification" value="Graduate"><span>Graduate</span></label>
+          <label class="chip"><input type="radio" name="qualification" value="Post Graduate"><span>Post Graduate</span></label>
+          <label class="chip"><input type="radio" name="qualification" value="MBA / PGDM"><span>MBA / PGDM</span></label>
+          <label class="chip"><input type="radio" name="qualification" value="Diploma / ITI"><span>Diploma / ITI</span></label>
+        </div><div class="err-msg">कृपया योग्यता चुनें</div></div>
+      <div class="field"><label class="lbl">कोर्स / विषय <span class="en">Course / Stream</span></label>
+        <input type="text" name="course" placeholder="जैसे: B.Com, BA, MBA Marketing"></div>
+    </section>
+
+    <!-- 4. EXPERIENCE -->
+    <section class="card">
+      <div class="sec-head"><div class="sec-num">4</div><div><h2>कार्य अनुभव</h2><p>Work Experience</p></div></div>
+
+      <div class="field" data-req="radio" data-name="totalExp"><label class="lbl">कुल सेल्स अनुभव <span class="en">Total Sales Experience</span> <span class="req">*</span></label>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="totalExp" value="Fresher"><span>Fresher</span></label>
+          <label class="chip"><input type="radio" name="totalExp" value="< 1 yr"><span>1 साल से कम</span></label>
+          <label class="chip"><input type="radio" name="totalExp" value="1-3 yrs"><span>1 – 3 साल</span></label>
+          <label class="chip"><input type="radio" name="totalExp" value="3-5 yrs"><span>3 – 5 साल</span></label>
+          <label class="chip"><input type="radio" name="totalExp" value="5+ yrs"><span>5+ साल</span></label>
+        </div><div class="err-msg">कृपया चुनें</div></div>
+
+      <div class="field" data-req="radio" data-name="reExp"><label class="lbl">रियल एस्टेट अनुभव <span class="en">Real Estate Experience</span> <span class="req">*</span></label>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="reExp" value="None"><span>नहीं</span></label>
+          <label class="chip"><input type="radio" name="reExp" value="< 1 yr"><span>1 साल से कम</span></label>
+          <label class="chip"><input type="radio" name="reExp" value="1-3 yrs"><span>1 – 3 साल</span></label>
+          <label class="chip"><input type="radio" name="reExp" value="3+ yrs"><span>3+ साल</span></label>
+        </div><div class="err-msg">कृपया चुनें</div></div>
+
+      <!-- MANAGER ONLY -->
+      <div class="manager-only" id="mgrBlock">
+        <div style="height:18px"></div>
+        <div class="field"><label class="lbl">कितनी बड़ी टीम संभाली है? <span class="tag-mgr">Manager</span></label>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="teamSize" value="None"><span>नहीं</span></label>
+            <label class="chip"><input type="radio" name="teamSize" value="1-5"><span>1 – 5</span></label>
+            <label class="chip"><input type="radio" name="teamSize" value="5-15"><span>5 – 15</span></label>
+            <label class="chip"><input type="radio" name="teamSize" value="15+"><span>15+</span></label>
+          </div></div>
+        <div class="field"><label class="lbl">पिछले 1 साल में आपकी / टीम की सेल्स उपलब्धि <span class="tag-mgr">Manager</span></label>
+          <input type="text" name="achievement" placeholder="जैसे: 25 प्लॉट / ₹2 करोड़ की बुकिंग"></div>
+        <div class="field"><label class="lbl">आपके साथ कितने एजेंट / ब्रोकर जुड़े हैं? <span class="tag-mgr">Manager</span></label>
+          <input type="number" name="agentNetwork" min="0" placeholder="संख्या"></div>
+      </div>
+    </section>
+
+    <!-- 5. FIELD READINESS -->
+    <section class="card">
+      <div class="sec-head"><div class="sec-num">5</div><div><h2>डिजिटल स्किल्स</h2><p>Digital Skills</p></div></div>
+
+      <div class="field"><label class="lbl">आप इनमें से क्या चला लेते हैं? <span class="en">एक से ज़्यादा चुनें</span></label>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="skills" value="Smartphone"><span>📱 Smartphone</span></label>
+          <label class="chip"><input type="checkbox" name="skills" value="WhatsApp Business"><span>💬 WhatsApp Business</span></label>
+          <label class="chip"><input type="checkbox" name="skills" value="Facebook / Instagram"><span>📣 Social Media</span></label>
+          <label class="chip"><input type="checkbox" name="skills" value="Excel / Sheets"><span>📊 Excel / Sheets</span></label>
+          <label class="chip"><input type="checkbox" name="skills" value="CRM"><span>🗂️ CRM</span></label>
+        </div></div>
+    </section>
+
+    <!-- DECLARATION -->
+    <section class="card">
+      <div class="field" data-req="decl">
+        <label class="decl"><input type="checkbox" name="declaration" id="declaration">
+          <span>मैं पुष्टि करता/करती हूँ कि दी गई सभी जानकारी सही है। Akshardham Associates की टीम मुझसे कॉल / WhatsApp पर संपर्क कर सकती है।</span></label>
+        <div class="err-msg">आगे बढ़ने के लिए पुष्टि करें</div>
+      </div>
+      <button type="submit" class="submit" id="submitBtn">✅ आवेदन जमा करें · Submit Application</button>
+      <div class="secure">🔒 आपकी जानकारी पूरी तरह सुरक्षित है</div>
+    </section>
+  </form>
+
+  <!-- SUCCESS -->
+  <section class="card success" id="success">
+    <div class="big">🎉</div>
+    <h2>आवेदन सफलतापूर्वक जमा!</h2>
+    <p>आपका Application ID नोट कर लें</p>
+    <div class="appid" id="appId">—</div>
+    <div class="steps">
+      <div><b>1</b><span>हमारी HR टीम 2–3 दिन में आपका प्रोफ़ाइल देखेगी</span></div>
+      <div><b>2</b><span>चुने गए उम्मीदवारों को कॉल / WhatsApp किया जाएगा</span></div>
+      <div><b>3</b><span>इंटरव्यू – Sarola / Khanpur ऑफ़िस में</span></div>
+    </div>
+  </section>
+
+  <footer>📞 किसी भी सहायता के लिए संपर्क करें<br><b>Akshardham Associates</b> · Jhalawar · Kota · Khanpur · Since 2004</footer>
+</div>
+
+<script>
+/* ====== CONFIG: Apps Script Web App URL yahan paste karein ====== */
+const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+const form = document.getElementById('jobForm');
+const $ = s => form.querySelector(s);
+const $$ = s => [...form.querySelectorAll(s)];
+
+/* Manager-only toggle */
+$$('input[name="post"]').forEach(r => r.addEventListener('change', () => {
+  document.getElementById('mgrBlock').classList.toggle('show', r.value === 'Sales Manager' && r.checked);
+}));
+
+/* Mobile: digits only */
+$$('input[type=tel]').forEach(i => i.addEventListener('input', () => i.value = i.value.replace(/\D/g,'').slice(0,10)));
+
+/* Age hint */
+document.getElementById('dob').addEventListener('change', e => {
+  const d = new Date(e.target.value); if (isNaN(d)) return;
+  const age = Math.floor((Date.now() - d) / 31557600000);
+  document.getElementById('ageHint').textContent = `उम्र: ${age} साल`;
+});
+
+/* Validation */
+function validField(f) {
+  const t = f.dataset.req, n = f.dataset.name;
+  if (t === 'post') return !!$('input[name="post"]:checked');
+  if (t === 'radio') return !!$(`input[name="${n}"]:checked`);
+  if (t === 'check') return $$(`input[name="${n}"]:checked`).length > 0;
+  if (t === 'decl') return $('#declaration').checked;
+  const el = f.querySelector('input,select,textarea');
+  if (t === 'mobile') return /^[6-9]\d{9}$/.test(el.value);
+  return el.value.trim() !== '';
+}
+function validateAll() {
+  let first = null;
+  $$('[data-req]').forEach(f => { const ok = validField(f); f.classList.toggle('invalid', !ok); if (!ok && !first) first = f; });
+  if (first) first.scrollIntoView({behavior:'smooth', block:'center'});
+  return !first;
+}
+form.addEventListener('input', e => { const f = e.target.closest('[data-req]'); if (f && f.classList.contains('invalid')) f.classList.toggle('invalid', !validField(f)); updateProgress(); });
+form.addEventListener('change', e => { const f = e.target.closest('[data-req]'); if (f && f.classList.contains('invalid')) f.classList.toggle('invalid', !validField(f)); updateProgress(); });
+
+/* Progress */
+function updateProgress() {
+  const req = $$('[data-req]'); const done = req.filter(validField).length;
+  const pct = Math.round(done / req.length * 100);
+  document.getElementById('pfill').style.width = pct + '%';
+  document.getElementById('ptxt').textContent = pct + '% पूरा';
+}
+
+/* Submit */
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!validateAll()) return;
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = '⏳ जमा हो रहा है...';
+
+  const fd = new FormData(form), data = {};
+  for (const [k, v] of fd.entries()) {
+    data[k] = data[k] ? data[k] + ', ' + v : v;
+  }
+  try {
+    data.project = 'Sarola';
+    data.userAgent = navigator.userAgent;
+
+    const res = await fetch(SCRIPT_URL, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(data) });
+    const out = await res.json();
+    if (out.status !== 'success') throw new Error(out.message || 'Error');
+
+    document.getElementById('appId').textContent = out.appId;
+    form.style.display = 'none';
+    document.querySelector('.progress').style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+    window.scrollTo({top:0, behavior:'smooth'});
+  } catch (err) {
+    alert('जमा नहीं हो पाया, कृपया दोबारा कोशिश करें।\n' + err.message);
+    btn.disabled = false; btn.textContent = '✅ आवेदन जमा करें · Submit Application';
+  }
+});
+updateProgress();
+</script>
+</body>
+</html>
